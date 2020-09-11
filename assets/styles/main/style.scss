@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+//variables
+$x-path: url('../../img/x.png');
+$o-path: url('../../img/o.png')
+
+:root {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 16px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1rem;
+    width: 40rem;
+    height: 35rem;
+    padding: 1rem;
+    border-radius: 2rem;
+
+    .box {
+        width: 100%;
+        height: 100%;
+        border-radius: 2rem;
+        background-color: rgba(255, 245, 238, 0.178);
+        cursor: pointer;
+
+        &:hover { background-color: rgba(255, 245, 238, 0.3) }
+    }
+    .x {
+        background-image: url('../../img/x.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 70%;
+    }
+    .o {
+        background-image: url('../../img/o.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 70%;
+    }
+    .winning-box {
+        background-color: #85FFBD;
+        &:hover { background-color: #85FFBD; }
+    }
+}
