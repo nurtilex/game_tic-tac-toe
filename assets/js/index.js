@@ -12,23 +12,19 @@ const settings = { // Вспомогательный объект
 }
 
 const check = { // Объект, связанный с проверкой на победителя
-    length(arr) { return arr.length > 0 }, // Проверяет длину массива
     rule(rule, nums) {  return rule.every(n => nums.includes(n)) && rule }, // Если в массива nums присутствует каждый элемент массива rule, возвращает массив rule. В ином случае false
     diagonals(nums) { // Проверяет массив nums по диагоналям. Если хоть одно условие true, возвращает массив индексов диагонали (элемент переменной diagonal)
-        this.length(nums);
         const diagonal = [ [0, 4, 8], [2, 4, 6] ]
         return this.rule(diagonal[0], nums) 
             || this.rule(diagonal[1], nums)
     },
     rows(nums) { // Проверяет массив nums по горизонтали. Если хоть одно условие true, возвращает массив индексов диагонали (элемент переменной rows)
-        this.length(nums);
         const rows = [ [0, 1, 2], [3, 4, 5], [6, 7, 8] ]
         return this.rule(rows[0], nums) 
             || this.rule(rows[1], nums) 
             || this.rule(rows[2], nums)
     },
     columns(nums) { // Проверяет массив nums по вертикали. Если хоть одно условие true, возвращает массив индексов диагонали (элемент переменной columns)
-        this.length(nums);
         const columns = [ [0, 3, 6], [1, 4, 7], [2, 5, 8] ]
         return this.rule(columns[0], nums) 
             || this.rule(columns[1], nums) 
