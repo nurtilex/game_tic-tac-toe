@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+.rotate180 {
+  -webkit-animation: rotate180 0.5s ease-in-out;
+          animation: rotate180 0.5s ease-in-out;
+}
+
 :root {
   font-family: 'Kumbh Sans', sans-serif;
   font-size: 16px;
@@ -14,10 +19,29 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
   width: 100%;
   height: 100vh;
   background-color: #21D4FD;
   background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+}
+
+.start {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgba(255, 245, 238, 0.8);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.start:active {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .game {
@@ -28,6 +52,7 @@ body {
   -ms-grid-rows: (1fr)[3];
       grid-template-rows: repeat(3, 1fr);
   grid-gap: 1rem;
+  position: relative;
   width: 40rem;
   height: 35rem;
   padding: 1rem;
@@ -40,10 +65,17 @@ body {
   border-radius: 2rem;
   background-color: rgba(255, 245, 238, 0.178);
   cursor: pointer;
+  outline: none;
+  border: none;
 }
 
 .game .box:hover {
   background-color: rgba(255, 245, 238, 0.3);
+}
+
+.game .box:active {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .game .x {
@@ -66,5 +98,110 @@ body {
 
 .game .winning-box:hover {
   background-color: #85FFBD;
+}
+
+.game .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: -7.5rem;
+  gap: 1rem;
+  left: 0;
+  width: 100%;
+  height: 7rem;
+  padding: 0.5rem 1rem;
+}
+
+.game .info .switch {
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: url("../../img/switch.png") no-repeat center;
+  background-size: 80%;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+
+.game .info .computer,
+.game .info .gamer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  width: 50%;
+  height: 100%;
+  padding: 0.5rem 1rem;
+  border: 2px solid rgba(255, 245, 238, 0.5);
+  border-radius: 1rem;
+}
+
+.game .info .computer .name,
+.game .info .gamer .name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgba(255, 245, 238, 0.8);
+}
+
+.game .info .computer .type,
+.game .info .gamer .type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgba(255, 245, 238, 0.8);
+  border-radius: 50%;
+  background-color: rgba(255, 245, 238, 0.2);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.game .info .computer .type:hover,
+.game .info .gamer .type:hover {
+  background-color: rgba(255, 245, 238, 0.3);
+}
+
+.game .info .winner {
+  background-color: rgba(133, 255, 190, 0.801);
+}
+
+@-webkit-keyframes rotate180 {
+  to {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+
+@keyframes rotate180 {
+  to {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
 }
 /*# sourceMappingURL=style.css.map */
